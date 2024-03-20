@@ -23,22 +23,18 @@ function adjustSliderValue(slider, direction) {
   updateColor();
 }
 
-// Event listeners for sliders (update color on change)
 redSlider.addEventListener('input', updateColor);
 greenSlider.addEventListener('input', updateColor);
 blueSlider.addEventListener('input', updateColor);
 
-// Event listeners for minus buttons (specific to each slider)
 const minusButtons = document.querySelectorAll('.controls-minus button');
 minusButtons[0].addEventListener('click', () => adjustSliderValue(redSlider, 'down'));
 minusButtons[1].addEventListener('click', () => adjustSliderValue(greenSlider, 'down'));
 minusButtons[2].addEventListener('click', () => adjustSliderValue(blueSlider, 'down'));
 
-// Event listeners for plus buttons (specific to each slider)
 const plusButtons = document.querySelectorAll('.controls-plus button');
 plusButtons[0].addEventListener('click', () => adjustSliderValue(redSlider, 'up'));
 plusButtons[1].addEventListener('click', () => adjustSliderValue(greenSlider, 'up'));
 plusButtons[2].addEventListener('click', () => adjustSliderValue(blueSlider, 'up'));
 
-// Update color on initial load
 updateColor();
