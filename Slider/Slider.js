@@ -3,7 +3,6 @@ const greenSlider = document.getElementById('green');
 const blueSlider = document.getElementById('blue');
 const screen = document.querySelector('.screen');
 
-// Function to update color based on slider values
 function updateColor() {
   const red = Math.min(Math.max(0, parseInt(redSlider.value)), 255);
   const green = Math.min(Math.max(0, parseInt(greenSlider.value)), 255);
@@ -13,17 +12,13 @@ function updateColor() {
   screen.style.backgroundColor = rgbColor;
 }
 
-// Function to adjust slider value (increase or decrease)
 function adjustSliderValue(slider, direction) {
-  const step = 2; // Amount to increase/decrease by
+  const step = 2; 
 
-  // Get current value and ensure it stays within valid range
   let currentValue = Math.min(Math.max(0, parseInt(slider.value)), 255);
 
-  // Adjust value based on direction (increase or decrease)
   currentValue = direction === 'up' ? currentValue + step : currentValue - step;
 
-  // Update slider value and trigger updateColor function
   slider.value = currentValue;
   updateColor();
 }
