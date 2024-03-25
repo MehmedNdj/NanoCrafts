@@ -1,0 +1,23 @@
+.title {
+    margin-top: 10%;
+    margin-left: 49%;
+    background-color: blue;
+    height: 50px;
+    width: 50px;
+}
+
+.resume {
+    width: 80%;
+    height: 600px;
+    background-color: aqua;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portfolio {
+    width: 80%;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: brown;
+}
