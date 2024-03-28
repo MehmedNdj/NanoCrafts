@@ -1,29 +1,32 @@
+/* Icon */
 .icon {
   width: 70px;
   height: 70px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 0%;
+  margin: 30px auto 0; 
+}
+
+.wrapper {
+  display: flex; /* Use flexbox for the wrapper */
+  justify-content: center; /* Distribute items with space around */
+  align-items: center;
 }
 
 .cv {
-  height: 700px;
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  background-image: url(frame.png);
-  background-size: cover;
+  height: 840px;
+  width: 600px;
+  margin: 0 auto; 
+  background-image: url(frame.png); 
+  background-size: cover; 
   position: relative;
   text-align: center;
+  flex: 1; /* Equal flex distribution */
 }
 
 .portfolio {
   height: 600px;
   width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0%;
+  margin: 0 auto;
+  margin-top: 0%; 
 }
 
 .line {
@@ -33,30 +36,47 @@
 .footer {
   width: 85%;
   height: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto; 
 }
+
 body {
-  background-color: rgb(34, 33, 48)
+  background-color: rgb(34, 33, 48);
 }
 
 hr {
   height: 15px;
-  background-color:rgb(0,0,0)
+  background-color: rgb(0, 0, 0);
 }
 
-.portfolio , .footer , .cv {
-  background-color: rgb(47,45,65);
-}
-
-p {
+p, h2 {
   color: blanchedalmond;
-  display: inline-block;
+}
+
+.p1 {
+  padding: 20px;
 }
 
 #pp {
   height: 75px;
   width: 75px;
-  border-radius: 50%;
+  border-radius: 50%; 
   margin-top: 25px;
+}
+
+.tech , .exp {
+  flex: 0 0 auto; /* Prevent flex-grow and flex-shrink, set to initial width */
+  height: 500px;
+  width: 355px;
+  background-image: url(frame.png);
+  background-size: cover;
+  text-align: center;
+}
+
+.cv , .tech , .exp , footer , .portfolio {
+  background-color: rgb(47, 45, 65);
+}
+
+.tech, .cv, .exp {
+  flex: 0 0 auto; /* Equal flex distribution */
+  margin: 30px; /* Add some spacing between columns */
 }
