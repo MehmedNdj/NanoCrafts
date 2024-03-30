@@ -19,7 +19,7 @@
   background-size: cover; 
   position: relative;
   text-align: center;
-  flex: 1; /* Equal flex distribution */
+  flex: 1; 
 }
 
 .portfolio {
@@ -34,9 +34,9 @@
 }
 
 .footer {
-  width: 85%;
-  height: 50px;
-  margin: 0 auto; 
+  width: 100%;
+  height: 60px;
+  text-align: center
 }
 
 body {
@@ -48,12 +48,12 @@ hr {
   background-color: rgb(0, 0, 0);
 }
 
-p, h2 {
+p, h2 , li {
   color: blanchedalmond;
 }
 
-.p1 {
-  padding: 20px;
+p {
+  padding: 15px;
 }
 
 #pp {
@@ -72,11 +72,41 @@ p, h2 {
   text-align: center;
 }
 
-.cv , .tech , .exp , footer , .portfolio {
+.cv , .tech , .exp {
   background-color: rgb(47, 45, 65);
 }
 
 .tech, .cv, .exp {
-  flex: 0 0 auto; /* Equal flex distribution */
-  margin: 30px; /* Add some spacing between columns */
+  flex: 0 0 auto;
+  margin: 30px; 
+}
+
+.wrapper2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+  grid-gap: 15px; /* Gap between grid items */
+}
+
+.g1 , .g2 , .g3 , .g4 , .g5 , .g6 {
+  background-color:  rgb(47, 45, 65);
+  height: 300px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-color: black;
+  box-shadow: 0 20px 30px;
+}
+
+#a {
+  margin-top: 50px;
+}
+
+h2 {
+  padding-top: 20px;
+}
+
+#gh , #ln {
+  margin: 10px;
 }
