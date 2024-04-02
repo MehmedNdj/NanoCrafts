@@ -1,4 +1,44 @@
 .box {
+    height: 200px;
+    width: 400px;
     justify-content: center;
-    margin: auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
+ 
+.color-sliders {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+  
+  .color-sliders {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .color-sliders input[type="range"] {
+    margin-right: 5px; /* Adjust as needed */
+    -webkit-appearance: slider-vertical;
+    appearance: slider-vertical;
+  }
+
+  #red {
+    accent-color: red;
+  }
+
+  #green {
+    accent-color: green;
+  }
+
+  #blue{
+    accent-color: blue;
+  }
+
+  .slider-group button {
+    margin: 0px 10px; /* Adjust the margin as needed */
+  }
