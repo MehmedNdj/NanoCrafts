@@ -1,29 +1,41 @@
 import React, { useState } from 'react';
-import './App.css';
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
+import { Autocomplete } from '@material-ui/lab';
+import { Button } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 
 function App() {
+  const [options, setOptions] = useState(['John Doe', 'Jane Doe', 'New York']);
+  const [inputValue, setInputValue] = useState('');
+  const [selectedOption, setSelectedOption] = useState(null);
 
-  const [age, setAge] = useState('');
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  }
+  const handleAddOrEditOption = () => {
+    if (selectedOption) {
+      const newOptions = options.map(option => option === selectedOption ? inputValue : option);
+      setOptions(newOptions);
+      setSelectedOption(null);
+    } else {
+      setOptions([...options, inputValue]);
+    }
+    setInputValue('');
+  };
 
   return (
-    <FormControl>
-      <InputLabel id="demo-simple-select-label">Age</InputLabel>
-      <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        value={age}
-        label="Age"
-        onChange={handleChange}>
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
-      </Select>
-    </FormControl>
+    <div>
+      <Autocomplete
+        value={selectedOption || inputValue}
+        onChange={(event, newValue) => {
+          setSelectedOption(newValue);
+          setInputValue(newValue);
+        }}
+        id="controllable-states-demo"
+        options={options}
+        style={{ width: 300 }}
+        renderInput={(params) => <TextField {...params} label="Controllable" variant="outlined" />}
+      />
+      <Button variant="contained" color="primary" onClick={handleAddOrEditOption}>
+        {selectedOption ? 'Edit Option' : 'Add Option'}
+      </Button>
+    </div>
   );
 }
 
