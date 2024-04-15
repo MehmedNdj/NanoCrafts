@@ -6,6 +6,8 @@ function Contacts() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedContact, setSelectedContact] = useState({ name: '', phone: '', address: '' });
   const [selectedIndex, setSelectedIndex] = useState(null);
+  //const [newContact, setNewContact] = useState({ name: '', phone: '', address: '' });
+
   const [data, setData] = useState([
     { name: 'John Doe', phone: '123-456-7890', address: '123 Main St' },
     { name: 'Jane Doe', phone: '098-765-4321', address: '456 Elm St' },
@@ -34,30 +36,54 @@ function Contacts() {
     setData(newData);
   };
 
+  // const handleAdd = () => {
+  //   setData([...data, newContact]);
+  //   setNewContact({ name: '', phone: '', address: '' });
+  // }
+
+  const handleDelete = () => {
+    const newData = [...data];
+    newData.splice(selectedIndex, 1);
+    setData(newData);
+    setSelectedContact({ name: '', phone: '', address: '' });
+    setSelectedIndex(null);
+  }
+
   return (
-    <div>
-      <Button onClick={handleClick}>
-        Open Menu
-      </Button>
+    <div className='holder'>
+      <div className='menu'>
+        <Button onClick={handleClick}>
+          Contact List
+        </Button>
+      </div>
 
-      <MyTextField label="Name" value={selectedContact.name} onChange={(e) => setSelectedContact({ ...selectedContact, name: e.target.value })} />
-      <MyTextField label="Phone" value={selectedContact.phone} onChange={(e) => setSelectedContact({ ...selectedContact, phone: e.target.value })} />
-      <MyTextField label="Address" value={selectedContact.address} onChange={(e) => setSelectedContact({ ...selectedContact, address: e.target.value })} />
+      <div className='textfield'>
+        <MyTextField label="Name" value={selectedContact.name} onChange={(e) => setSelectedContact({ ...selectedContact, name: e.target.value })} />
+        <MyTextField label="Phone" value={selectedContact.phone} onChange={(e) => setSelectedContact({ ...selectedContact, phone: e.target.value })} />
+        <MyTextField label="Address" value={selectedContact.address} onChange={(e) => setSelectedContact({ ...selectedContact, address: e.target.value })} />
+      </div>
 
-      <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        {data.map((item, index) => (
-          <MenuItem key={index} onClick={() => handleMenuItemClick(item, index)}>
-            {item.name} - Phone: {item.phone}, Address: {item.address}
-          </MenuItem>
-        ))}
-      </Menu>
-      <Button onClick={handleSave}>
-        Save
-      </Button>
+      <div>
+        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+          {data.map((item, index) => (
+            <MenuItem key={index} onClick={() => handleMenuItemClick(item, index)}>
+              {item.name} - Phone: {item.phone}, Address: {item.address}
+            </MenuItem>
+          ))}
+        </Menu>
+      </div>
+
+      <div className='buttons'>
+        <Button onClick={handleSave}>
+          Save
+        </Button>
+        {/* <Button onClick={handleAdd}>
+          Add
+        </Button> */}
+        <Button onClick={handleDelete}>
+          Delete
+        </Button>
+      </div>
     </div>
   );
 }
