@@ -1,9 +1,9 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-function MyTextField({ label, value }) {
+function MyTextField({ label, value, onChange }) {
   return (
-    <TextField label={label} value={value} margin="normal" fullWidth />
+    <TextField label={label} value={value} onChange={onChange} margin="normal" fullWidth />
   );
 }
 

@@ -2,9 +2,9 @@ import Contacts from './Contacts';
 
 function App() {
   return (
-    <div>
+    <>
       <Contacts />
-    </div>
+    </>
   );
 }
 
