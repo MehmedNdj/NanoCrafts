@@ -6,7 +6,9 @@ function Contacts() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedContact, setSelectedContact] = useState({ name: '', phone: '', address: '' });
   const [selectedIndex, setSelectedIndex] = useState(null);
-  //const [newContact, setNewContact] = useState({ name: '', phone: '', address: '' });
+  const [newContact, setNewContact] = useState({ name: '', phone: '', address: '' });
+  const [showNewContactForm, setShowNewContactForm] = useState(false);
+  
 
   const [data, setData] = useState([
     { name: 'John Doe', phone: '123-456-7890', address: '123 Main St' },
@@ -36,10 +38,13 @@ function Contacts() {
     setData(newData);
   };
 
-  // const handleAdd = () => {
-  //   setData([...data, newContact]);
-  //   setNewContact({ name: '', phone: '', address: '' });
-  // }
+  const handleAdd = () => {
+    if(showNewContactForm) {
+    setData([...data, newContact]);
+    setNewContact({ name: '', phone: '', address: '' });
+    }
+    setShowNewContactForm(!showNewContactForm);
+  }
 
   const handleDelete = () => {
     const newData = [...data];
@@ -57,11 +62,22 @@ function Contacts() {
         </Button>
       </div>
 
+      {!showNewContactForm && (
       <div className='textfield'>
         <MyTextField label="Name" value={selectedContact.name} onChange={(e) => setSelectedContact({ ...selectedContact, name: e.target.value })} />
         <MyTextField label="Phone" value={selectedContact.phone} onChange={(e) => setSelectedContact({ ...selectedContact, phone: e.target.value })} />
         <MyTextField label="Address" value={selectedContact.address} onChange={(e) => setSelectedContact({ ...selectedContact, address: e.target.value })} />
       </div>
+      )}
+
+      {showNewContactForm && (
+      <div className='textfield'>
+        <MyTextField label="Name" value={newContact.name} onChange={(e) => setNewContact({ ...newContact, name: e.target.value })} />
+        <MyTextField label="Phone" value={newContact.phone} onChange={(e) => setNewContact({ ...newContact, phone: e.target.value })} />
+        <MyTextField label="Address" value={newContact.address} onChange={(e) => setNewContact({ ...newContact, address: e.target.value })} />
+      </div>
+      )}
+      
 
       <div>
         <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
@@ -77,9 +93,9 @@ function Contacts() {
         <Button onClick={handleSave}>
           Save
         </Button>
-        {/* <Button onClick={handleAdd}>
-          Add
-        </Button> */}
+        <Button onClick={handleAdd}>
+          {showNewContactForm ? 'Submit' : 'Add'}
+        </Button>
         <Button onClick={handleDelete}>
           Delete
         </Button>
