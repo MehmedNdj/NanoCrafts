@@ -16,6 +16,7 @@ function Contacts() {
     { name: 'Joe Smith', phone: '321-654-0987', address: '789 Maple St'},
     { name: 'Jill Smith', phone: '567-890-1234', address: '987 Oak St'},
     { name: 'Jack Black', phone: '654-321-7890', address: '654 Pine St'}
+    { name: 'Jill Black', phone: '567-890-1234', address: '987 Oak St'}
   ]);
 
   const handleClick = (event) => {
