@@ -47,22 +47,24 @@ const rows = [
 
 export default function App() {
   return (
-    <Box sx={{ height: 400, width: '50%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 5,
+    <div className='table'>
+      {/* <Box sx={{ height: 400, width: '50%' }}> */}
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 5,
+              },
             },
-          },
-        }}
-        pageSizeOptions={[5]}
-        checkboxSelection
-        disableRowSelectionOnClick
-      />
-    </Box>
+          }}
+          pageSizeOptions={[5]}
+          checkboxSelection
+          disableRowSelectionOnClick
+        />
+      {/* </Box> */}
+    </div>
   );
 }
 
