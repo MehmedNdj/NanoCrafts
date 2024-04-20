@@ -1,9 +1,10 @@
-import { useState } from 'react'
-import DataGrid from './Datagrid.jsx'
+import AfuckingFunction from './Datagrid.jsx'
 
 function App() {
   return(
-    <DataGrid/>
+    <div>
+      <AfuckingFunction/>
+    </div>
   )
 }
 
