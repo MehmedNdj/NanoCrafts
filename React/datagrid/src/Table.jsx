@@ -13,7 +13,8 @@ const initialColumns = [
       type: 'number',
       width: 110,
       editable: true,
-    },
+    }
+    
 ];
 
 const initialRows = [
@@ -26,7 +27,6 @@ const initialRows = [
     { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
     { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
 ];
-
 function DataGridInfo() {
   const [rows, setRows] = useState(initialRows);
   const [columns, setColumns] = useState(initialColumns);
@@ -38,7 +38,7 @@ function DataGridInfo() {
   };
 
   const handleDelete = () => {
-    setRows(rows.filter(row => !selectionModel.includes(row.id)));
+    setRows(rows.map(row => selectionModel.includes(row.id) ? { id: row.id } : row));
   };
 
   return (
@@ -51,7 +51,7 @@ function DataGridInfo() {
           rowsPerPageOptions={[5]}
           checkboxSelection
           onSelectionModelChange={(newSelection) => {
-            setSelectionModel(newSelection.selectionModel);
+            setSelectionModel(newSelection);
           }}
           selectionModel={selectionModel}
         />
