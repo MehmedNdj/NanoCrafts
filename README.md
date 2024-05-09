@@ -1,3 +1,3 @@
 # CS50
  
-This repository will contain the exercises or small projects that i do
+This repository is containing the exercises or small projects that i did
